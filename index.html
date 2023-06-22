@@ -4,7 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Web APIs Code Quiz</title>
+    <link rel="stylesheet" href="./style.css">
 </head>
+
 <body>
     <header>
         <h4 id="view-highscores">View Highscores</h4>
@@ -20,12 +22,14 @@
     </section>
 
     <section id="question-container" class="hide">
+        <div class="container-questions">
         <div id="question"></div>
-        <div id="answer-options"></div>
+        <div id="answer-options" class="btn-grid"></div>
+    </div>
     </section>
 
     <section id="end-page" class="hide">
-        <div class="end container">
+        <div class="end-container">
          <div id=score-banner>
              <h1>All done!</h1>
          </div>  
