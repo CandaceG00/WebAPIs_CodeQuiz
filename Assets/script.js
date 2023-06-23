@@ -61,3 +61,67 @@ var questions = [
       choices: [{choice: '1. adding drama'}, {choice: '2. local storage'}, {choice: '3. online shopping'}, {choice: '4. naming a variable'}]
     },
   ];
+
+  let renderStartPage = function () {
+    containerHighScoresEl.classList.add("hide");
+    containerHighScoresEl.classList.remove("show");
+    containerWelcomePageEl.classList.remove("hide");
+    containerWelcomePageEl.classList.add("show");
+    containerScoreEl.removeChild(containerScoreEl.lastChild);
+    QuestionIndex = 0;
+    gameover = "";
+    timerEl.textContent = 0;
+    score = 0;
+
+    if (correctEl.className = "show") {
+        correctEl.classList.remove("show");
+        correctEl.classList.add("hide")
+    }
+    if (wrongEl.className = "show") {
+        wrongEl.classList.remove("show");
+        wrongEl.classList.add("hide");
+    }
+  }
+
+  let setTime = function () {
+    timeleft = 30;
+
+    let timercheck = setInterval(function() {
+        timerEl.innerText = timeleft;
+        timeleft--
+
+        if (gameover) {
+            clearInterval(timercheck)
+        }
+       
+        if (timeleft < 0) {
+            showScore()
+            timerEl.innerText = 0
+            clearInterval(timercheck)
+        }
+
+        }, 1000)
+  }
+
+  let startGame = function() {
+    //add classes to show/hide start and quiz screen
+    containerWelcomePageEl.classList.add('hide');
+    containerWelcomePageEl.classList.remove('show');
+    containerQuestionEl.classList.remove('hide');
+    containerQuestionEl.classList.add('show');
+    //Shuffle the questions so they show in random order
+    arrayShuffledQuestions = questions.sort(() => Math.random() - 0.5)
+    setTime()
+    setQuestion()
+  }
+
+    let setQuestion = function() {
+    resetAnswers()
+    displayQuestion(arrayShuffledQuestions[QuestionIndex])
+}
+
+let resetAnswers = function() {
+    while (answerbuttonsEl.firstChild) {
+        answerbuttonsEl.removeChild(answerbuttonsEl.firstChild)
+    };
+};
