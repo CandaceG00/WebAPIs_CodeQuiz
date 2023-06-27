@@ -24,7 +24,7 @@ THEN I can save my initials and my score
 
 * This webpage can be used to test one's knowledge on coding skills as well as record and log their highscores.
 
-* Link: 
+* Link: https://candaceg00.github.io/WebAPIs_CodeQuiz/
 
 * Screenshots:
     <img src="./Assets/webapi_1.png"/>
